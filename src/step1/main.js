@@ -1,10 +1,10 @@
 import React from 'react';
-import './App.css';
+import './main.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Navbar, Nav } from 'react-bootstrap';
 import {drawKeyPoints, drawSkeleton} from './utils';
-import * as posenet from '@tensorflow-models/posenet'
-export default class main extends React.Component{
+import * as posenet from '@tensorflow-models/posenet';
+
+export default class Main extends React.Component{
 
     static defaultProps = {
         videoWidth: 1600,
@@ -26,7 +26,7 @@ export default class main extends React.Component{
       }
     
       constructor(props) {
-        super(props, App.defaultProps)
+        super(props, Main.defaultProps)
       }
     
       getCanvas = elem => {
@@ -193,21 +193,7 @@ export default class main extends React.Component{
 
     render() {
         return(
-            <>
-                <Navbar bg="light" variant="light" className="justify-content-between">
-                    <Navbar.Text></Navbar.Text>
-                    <Navbar.Brand href="#home">PUMPETITION</Navbar.Brand>
-                    <Navbar.Collapse className="justify-content-end">
-                        <Nav.Link href="#about">ABOUT</Nav.Link>
-                        {/* <Nav.Link href="#features">Features</Nav.Link>
-                        <Nav.Link href="#pricing">Pricing</Nav.Link> */}
-                    </Navbar.Collapse>
-                    {/* <Form inline>
-                        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                        <Button variant="outline-primary">Search</Button>
-                    </Form> */}
-                </Navbar>
-                    {/* {memo.p2}  */}
+            <>                
                 <div>
                     <div>
                     <video id="videoNoShow" playsInline ref={this.getVideo} />
