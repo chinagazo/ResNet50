@@ -212,6 +212,8 @@ export default class main extends React.Component{
                     <div>
                     <video id="videoNoShow" playsInline ref={this.getVideo} />
                     <canvas className="webcam" ref={this.getCanvas} />
+                    <canvas id="canvas1"/>
+                    <canvas id="canvas2"/>
                     </div>
                 </div>  
             </>
