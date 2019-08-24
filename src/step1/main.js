@@ -3,6 +3,8 @@ import React from 'react';
 // <–––––––규원----------->
 import firebase from 'firebase/app';
 import "firebase/database";
+
+import * as model from "./model";
 // <--------------------->
 
 import './main.css';
@@ -26,6 +28,7 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 let database = firebase.database();
+
 // <------------------------>
 
 export default class main extends React.Component {
@@ -33,7 +36,7 @@ export default class main extends React.Component {
   static defaultProps = {
     videoWidth: 1600,
     videoHeight: 1000,
-    flipHorizontal: true,
+    flipHorizontal: false,
     algorithm: 'multi-pose',
     showVideo: true,
     showSkeleton: true,
@@ -44,7 +47,7 @@ export default class main extends React.Component {
     maxPoseDetections: 5,
     outputStride: 16,
     imageScaleFactor: 0.5,
-    skeletonColor: '#FFF',
+    skeletonColor: '#BBB',
     skeletonLineWidth: 6,
     loadingText: 'Loading...please be patient...'
   }
@@ -86,6 +89,7 @@ export default class main extends React.Component {
     }
 
     this.detectPose()
+    this.drawPose();
   }
 
   async setupCamera() {
@@ -181,15 +185,23 @@ export default class main extends React.Component {
           break;
       }
 
+      model.checkOnline(poses).then((status) => {
+        console.log(status);
+      });
+      
+
       canvasContext.clearRect(0, 0, videoWidth, videoHeight)
 
       if (showVideo) {
-
-        canvasContext.drawImage(video, 0, 0, videoWidth, videoHeight)
+        canvasContext.save();
+        //canvasContext.scale(-1, 1);
+        //canvasContext.translate(-videoWidth, 0);
+        canvasContext.drawImage(video, 0, 0, videoWidth, videoHeight);
+        canvasContext.restore();
       }
 
       // <-----규원 구현 : db 연결 파트 ----->
-      const dataRef = "bat";
+      const dataRef = "poses/p1";
       database.ref(dataRef).set(poses);
       // <------------------------------>
 
@@ -225,7 +237,7 @@ export default class main extends React.Component {
     const { videoWidth, videoHeight } = this.props;
     const canvas = document.getElementById('canvas1');;
     const canvasContext = canvas.getContext('2d');
-    const dataRef = "bat" // 어디 객체에서 찾을 것인지
+    const dataRef = "poses/p1" // 어디 객체에서 찾을 것인지
 
     canvas.width = videoWidth;
     canvas.height = videoHeight;
@@ -289,10 +301,13 @@ export default class main extends React.Component {
     findPoseDrawFrame()
   }
 
+  getStartTiming() {
+
+  }
+
   render() {
     return (
       <>
-        
         <div>
           <div>
             <video id="videoNoShow" playsInline ref={this.getVideo} />
