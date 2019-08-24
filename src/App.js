@@ -3,10 +3,11 @@ import { Navbar, Nav, Button, Container, Col, Row } from 'react-bootstrap';
 import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Link, Switch  } from 'react-router-dom';
-import Main from './step2/main';
+import Main from './step3/main';
 import round from './round.png';
 import About from './About';
 import group2 from './group-2.png';
+import check from './check.png';
 // import { fire, getFireDB } from './Firebase';
 
 // 
@@ -156,7 +157,7 @@ export default class App extends Component{
       <>
         <Router>
           <Navbar bg="light" variant="light" className="justify-content-between">
-            <Navbar.Brand href="/" className="FontExtra">PUMPETITION</Navbar.Brand>
+            <Navbar.Brand href="/" className="FontExtra"><img src={check} />PUMPETITION</Navbar.Brand>
             <Navbar.Collapse className="justify-content-end navBar">
               <Link to="/About" style={{color:'black', marginRight:"2%"}}>JOIN</Link>
               <Link to="/MYPAGE" style={{color:'black', marginRight:"2%"}}>MYPAGE</Link>
