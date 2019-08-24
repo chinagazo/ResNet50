@@ -96,7 +96,7 @@ export default class main extends React.Component {
   // 규원 구현 파트 : 카메라 없이 그냥 poses 받은것을 컴포넌트에 그려줌
   drawPose() {
     const { videoWidth, videoHeight } = this.props;
-    const canvas = this.canvas;
+    const canvas = document.getElementById('canvas1');
     const canvasContext = canvas.getContext('2d');
     const dataRef = "bat" // 어디 객체에서 찾을 것인지
 

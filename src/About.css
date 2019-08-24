@@ -1,0 +1,40 @@
+.WHAT-WE-DO {
+    width: 153px;
+    height: 26px;
+    font-family: myThirdFont;
+    font-size: 23px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 3.21px;
+    color: #000000;
+  }
+
+  .We-connect-to-people {
+    width: 976px;
+    height: 752px;
+    -webkit-text-stroke: 1px #000000;
+    font-family: myThirdFont2;
+    font-size: 70px;
+    font-weight: 500;
+    font-style: italic;
+    font-stretch: normal;
+    line-height: 1.26;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ffffff;
+  }
+
+
+@font-face {
+    font-family: myThirdFont;
+    src: url(Anteb-Bold.otf);
+     font-weight: bold;
+  }
+
+@font-face {
+    font-family: myThirdFont2;
+    src: url(Anteb-MediumItalic.otf);
+     font-weight: bold;
+  }
