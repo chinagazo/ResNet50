@@ -37,6 +37,105 @@
     -moz-transform:rotateY(180deg); /* Firefox */
 }
 
+#Ready{
+  width: 350px;
+  height: 81px;
+  background-color: #18ffca;
+  color:black;
+  font-family: "Anteb-ExtraBold";
+}
+
+.FontExtra{
+  font-size: 35px;
+  font-weight: 800;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 4.88px;
+  color: #000000;
+  font-family: myFourthFont;
+}
+
+#Rectangle{
+  margin-top : 25%;
+  object-fit: contain;
+  background-color: #9a9a9a;
+  font-size:31px;
+  font-family: myFirstFont;
+
+}
+
+#track{
+  margin-top : 5%;
+  object-fit: contain;
+  font-size:20px;
+  line-height: 25px;
+  letter-spacing: 3px;
+  font-family: myFirstFont;
+  text-align: center;
+
+}
+
+#balls{
+  position:absolute;
+  z-index: -1;
+}
+
+#box {
+  margin-top : 5%;
+  
+  width: 228px;
+  height: 72px;
+  vertical-align:middle;
+  border: solid 1px #979797;
+  background-color: #d8d8d8;
+  font-family: myThirdFont;
+  letter-spacing: 3.21px;
+  font-size: 23px;
+}
+
+.round {
+  margin-top : 15%;
+  position: absolute;
+  width: 266px;
+  height: 271.8px;
+  object-fit: contain;
+  transform: rotate(-119deg);
+  animation:spin 15s linear infinite;
+  top: 1%;
+  left: 70%;
+  z-index: -1;
+}
+
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+
+@font-face {
+  font-family: myFirstFont;
+  src: url(OCRAStd.otf);
+   font-weight: bold;
+}
+
+@font-face {
+  font-family: mySecondFont;
+  src: url(Anteb-Medium.otf);
+   font-weight: bold;
+}
+
+@font-face {
+  font-family: myThirdFont;
+  src: url(Anteb-Bold.otf);
+   font-weight: bold;
+}
+
+@font-face {
+  font-family: myFourthFont;
+  src: url(Anteb-ExtraBold.otf);
+   font-weight: bold;
+}
+
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

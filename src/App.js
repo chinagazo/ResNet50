@@ -1,12 +1,20 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Navbar, Nav } from 'react-bootstrap';
-import React, {Component} from 'react';
-
+import { Navbar, Nav, Button, Container, Col, Row } from 'react-bootstrap';
+import React, { Component } from 'react';
+import './App.css';
+import { BrowserRouter as Router, Route, Link  } from 'react-router-dom';
+import Main from './step1/main';
+import round from './round.png';
 // import { fire, getFireDB } from './Firebase';
 
 // 
 
+// function ButtonStart(){
+//   return <Button>Start</Button>;
+// }
+
 export default class App extends Component{
+
   // constructor(){
   //   super();
   //   this.state = {
@@ -66,7 +74,7 @@ export default class App extends Component{
              }
           
           this.x += this.velX;
-          this.y -= this.velY;
+          this.y += this.velY;
           // theSurface.bezierCurveTo();
         }
         
@@ -100,10 +108,14 @@ export default class App extends Component{
     // const { memo } = this.state;
     return (
       <>
+        <Router>
         <Navbar bg="light" variant="light" className="justify-content-between">
-          <Navbar.Brand href="#home">PUMPETITION</Navbar.Brand>
-          <Navbar.Collapse className="justify-content-end">
-            <Nav.Link href="#about">ABOUT</Nav.Link>
+          <Navbar.Brand href="#home" className="FontExtra">PUMPETITION</Navbar.Brand>
+          <Navbar.Collapse className="justify-content-end FontExtra">
+            <Nav.Link href="#about" style={{color:'black'}}>ABOUT</Nav.Link>
+            <Link to="/step1/Main" id="Ready" style={{display: 'flex', 
+  justifyContent: 'center', alignItems: 'center'}}>Ready?</Link>
+
             {/* <Nav.Link href="#features">Features</Nav.Link>
             <Nav.Link href="#pricing">Pricing</Nav.Link> */}
           </Navbar.Collapse>
@@ -114,6 +126,45 @@ export default class App extends Component{
         </Navbar>
           {/* {memo.p2}  */}
           <canvas id="balls"></canvas>
+          <Container className="justify-content-between">
+              <Row xs lg="2"></Row>
+              <Row className="justify-content-md-center text-center">
+                  <div id="Rectangle">
+                  PUMP OR DEATH - THE DEATH OF COMPETITION
+                  </div>
+                  
+              </Row>
+              <Row className="justify-content-md-end"><img src={round}
+               srcset="round@2x.png 2x,
+                round@3x.png 3x"
+              class="round"></img></Row>
+          </Container>
+          <Container className="justify-content-between">
+              <Row xs lg="2"></Row>
+              <Row className="justify-content-md-center text-center">
+                  <div id="track">
+                  We track your poses.<br />
+                  Inspire yourself while working out with people.
+                  </div>
+                  
+              </Row>
+              <Row className="justify-content-md-end"></Row>
+          </Container>
+
+          <Container className="justify-content-between">
+              <Row xs lg="2"></Row>
+              <Row className="justify-content-md-center text-center">
+                  <div id="box" style={{display: 'flex', 
+  justifyContent: 'center', alignItems: 'center'}}>
+                      WHATTT
+                  </div>
+                  
+              </Row>
+              <Row className="justify-content-md-end"></Row>
+          </Container>
+
+          <Route exact path="/step1/Main" component={Main} />
+          </Router>
       </>  
         
     );

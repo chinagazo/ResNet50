@@ -5,7 +5,7 @@ import firebase from 'firebase/app';
 import "firebase/database";
 // <--------------------->
 
-import './App.css';
+import './main.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Nav } from 'react-bootstrap';
 import { drawKeyPoints, drawSkeleton } from './utils';
@@ -50,7 +50,7 @@ export default class main extends React.Component {
   }
 
   constructor(props) {
-    super(props, App.defaultProps)
+    super(props, main.defaultProps)
   }
 
   getCanvas = elem => {
@@ -219,6 +219,76 @@ export default class main extends React.Component {
     findPoseDetectionFrame()
   }
 
+
+  // 규원 구현 파트 : 카메라 없이 그냥 poses 받은것을 컴포넌트에 그려줌
+  drawPose() {
+    const { videoWidth, videoHeight } = this.props;
+    const canvas = document.getElementById('canvas1');;
+    const canvasContext = canvas.getContext('2d');
+    const dataRef = "bat" // 어디 객체에서 찾을 것인지
+
+    canvas.width = videoWidth;
+    canvas.height = videoHeight;
+
+    database.ref(dataRef).on("value", snap => {
+      let poses = snap.val();
+      if(!poses) {
+        return;
+      }
+      if(!poses[0]) {
+        return;
+      }
+      this.poseDrawFrame(canvasContext, poses) // 여기서 받는 콘텍스트에 poses 받은걸 그립니다.
+    });
+    
+  }
+
+  poseDrawFrame(canvasContext, poses) {
+    // 예외처리: pose가 정의되지 않았다면, poses에 사람이 한명도 없다면 함수 즉시 종료
+    if (!poses || !poses[0]) {
+      return;
+    }
+
+    const {
+      minPoseConfidence,
+      minPartConfidence,
+      videoWidth,
+      videoHeight,
+      showPoints,
+      showSkeleton,
+      skeletonColor,
+      skeletonLineWidth
+    } = this.props
+
+    const findPoseDrawFrame = async () => {
+
+      canvasContext.clearRect(0, 0, videoWidth, videoHeight)
+
+      poses.forEach(({ score, keypoints }) => {
+        if (score >= minPoseConfidence) {
+          if (showPoints) {
+            drawKeyPoints(
+              keypoints,
+              minPartConfidence,
+              skeletonColor,
+              canvasContext
+            )
+          }
+          if (showSkeleton) {
+            drawSkeleton(
+              keypoints,
+              minPartConfidence,
+              skeletonColor,
+              skeletonLineWidth,
+              canvasContext
+            )
+          }
+        }
+      })
+    }
+    findPoseDrawFrame()
+  }
+
   render() {
     return (
       <>
@@ -240,7 +310,7 @@ export default class main extends React.Component {
           <div>
             <video id="videoNoShow" playsInline ref={this.getVideo} />
             <canvas className="webcam" ref={this.getCanvas} />
-            <canvas id="canvas1" />
+            <canvas id="canvas1" width="1000" height="500" style={{border:"5px solid"}} />
             <canvas id="canvas2" />
           </div>
         </div>
