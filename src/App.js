@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Link, Switch  } from 'react-router-dom'
 import Main from './step2/main';
 import round from './round.png';
 import About from './About';
+import group2 from './group-2.png';
 // import { fire, getFireDB } from './Firebase';
 
 // 
@@ -18,39 +19,40 @@ import About from './About';
 function ContainerHeader() {
   return <div>
   <canvas id="balls"></canvas>
-  <Container className="justify-content-between">
-  <Row xs lg="2"></Row>
-  <Row className="justify-content-md-center text-center">
+  <Row className="justify-content-between">
+    
+    <Col xs lg="1"></Col>
+    <Col id="RectangleOut" className="justify-content-md-center text-center">
       <div id="Rectangle">
       PUMP OR DEATH - THE DEATH OF COMPETITION
-      </div>
-      
+      </div>  
+    </Col>
+    <Col xs lg="1" className="justify-content-md-end"></Col>
   </Row>
-  <Row className="justify-content-md-end"><img src={round}
-  srcset="round@2x.png 2x,
-    round@3x.png 3x"
-  class="round"></img></Row>
-  </Container>
   <Container className="justify-content-between">
   <Row xs lg="2"></Row>
   <Row className="justify-content-md-center text-center">
       <div id="track">
-      We track your poses.<br />
-      Inspire yourself while working out with people.
+      Getting Connected with people.<br />
+      Stay Inspired for your workout.
       </div>
       
   </Row>
-  <Row className="justify-content-md-end"></Row>
+  <Row className="justify-content-md-end"><img src={round}
+      srcset="round@2x.png 2x,round@3x.png 3x"
+      class="round"></img></Row>
 </Container>
 
 <Container className="justify-content-between">
   <Row xs lg="2"></Row>
   <Row className="justify-content-md-center text-center">
-      <div id="box" style={{display: 'flex', 
-justifyContent: 'center', alignItems: 'center'}}>
-          WHATTTTTTTTT
-      </div>
-      
+      <Link to="/step3/Main" id="Ready" style={{display: 'flex', 
+justifyContent: 'center', alignItems: 'center', marginTop:'5%'}}>
+          <img src={group2}
+          srcset="./group-2@2x.png 2x,
+                  ./group-2@3x.png 3x"
+          class="Group-2" />
+      </Link>
   </Row>
   <Row className="justify-content-md-end"></Row>
 </Container>
@@ -155,10 +157,12 @@ export default class App extends Component{
         <Router>
           <Navbar bg="light" variant="light" className="justify-content-between">
             <Navbar.Brand href="/" className="FontExtra">PUMPETITION</Navbar.Brand>
-            <Navbar.Collapse className="justify-content-end FontExtra">
-              <Link to="/About" style={{color:'black'}}>ABOUT</Link>
-              <Link to="/step2/Main" id="Ready" style={{display: 'flex', 
-    justifyContent: 'center', alignItems: 'center'}}>READY?</Link>
+            <Navbar.Collapse className="justify-content-end navBar">
+              <Link to="/About" style={{color:'black', marginRight:"2%"}}>JOIN</Link>
+              <Link to="/MYPAGE" style={{color:'black', marginRight:"2%"}}>MYPAGE</Link>
+              <Link to="/About" style={{color:'black', marginRight: "10%"}}>About</Link>
+              {/* <Link to="/step2/Main" id="Ready" style={{display: 'flex', 
+    justifyContent: 'center', alignItems: 'center'}}>READY?</Link> */}
 
               {/* <Nav.Link href="#features">Features</Nav.Link>
               <Nav.Link href="#pricing">Pricing</Nav.Link> */}
@@ -171,8 +175,9 @@ export default class App extends Component{
             {/* {memo.p2}  */}
               <Switch>
                 <Route exact path="/" component={ContainerHeader}/>
+                <Route exact path="/Mypage" component={ContainerHeader}/>
                 <Route path="/About" component={About}/>
-                <Route path="/step2/Main" component={Main} />
+                <Route path="/step3/Main" component={Main} />
               
               </Switch> 
            </Router>

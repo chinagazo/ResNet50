@@ -33,21 +33,29 @@
   display:none !important;
 }
 
+.navBar{
+  width: 55px;
+  height: 24px;
+  font-family: myThirdFont;
+  font-size: 22px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 3.07px;
+  text-align: center;
+  color: #000000;
+}
+
 .webcam{
     transform: rotateY(180deg);
     -webkit-transform:rotateY(180deg); /* Safari and Chrome */
     -moz-transform:rotateY(180deg); /* Firefox */
 }
 
-#Ready{
-  width: 350px;
-  height: 81px;
-  background-color: #18ffca;
-  color:black;
-  font-family: "Anteb-ExtraBold";
-}
 
 .FontExtra{
+  margin-left:7%;
   font-size: 35px;
   font-weight: 800;
   font-style: normal;
@@ -55,20 +63,31 @@
   line-height: normal;
   letter-spacing: 4.88px;
   color: #000000;
-  font-family: myFourthFont;
+  font-family: myFifthFont;
 }
 
-#Rectangle{
-  margin-top : 25%;
+#RectangleOut{
+  padding: 10px 0px;
   object-fit: contain;
-  background-color: #9a9a9a;
-  font-size:31px;
-  font-family: myFirstFont;
+  background-color: #343434;
+}
 
+
+#Rectangle{
+  object-fit: contain;
+  font-family: AntebAlt;
+  font-size: 35px;
+  font-weight: 900;
+  font-style: italic;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 2.94px;
+  text-align: center;
+  color: #ffffff;
 }
 
 #track{
-  margin-top : 5%;
+  margin-top : 40%;
   object-fit: contain;
   font-size:20px;
   line-height: 25px;
@@ -99,10 +118,10 @@
 .round {
   margin-top : 15%;
   position: absolute;
-  width: 266px;
-  height: 271.8px;
+  width: 516px;
+  height: 528px;
   object-fit: contain;
-  transform: rotate(-119deg);
+  transform: rotate(-214deg);
   animation:spin 15s linear infinite;
   top: 1%;
   left: 70%;
@@ -110,6 +129,12 @@
 }
 
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+@font-face {
+  font-family: AntebAlt;
+  src: url(AntebAlt-BlackItalic.otf);
+   font-weight: bold;
+}
 
 
 @font-face {
@@ -133,6 +158,12 @@
 @font-face {
   font-family: myFourthFont;
   src: url(Anteb-ExtraBold.otf);
+   font-weight: bold;
+}
+
+@font-face {
+  font-family: myFifthFont;
+  src: url(AntebAlt-ExtraBlackItalic.otf);
    font-weight: bold;
 }
 

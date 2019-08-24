@@ -16,7 +16,7 @@ export default class Main extends Component{
                     {/* {memo.p2}  */}
                         {/* <Route path="/About" component={About}/> */}
                         {/* <Route path="/step1/Main" component={Main} /> */}
-                    <Col style={{color: "#ff274b", height: "16px",border: "solid 1px #979797", backgroundColor: "#ff274b"}}></Col>
+                    <Col id="health" style={{color: "#ff274b", height: "16px",border: "solid 1px #979797", backgroundColor: "#ff274b"}}></Col>
                     <Row className="justify-content-between">
                                 <Col xs id="start" lg="4">0s<br /><br /><div id="word">Duration</div></Col>
                                 <Col id="time" style={{display: 'flex', 
@@ -33,6 +33,14 @@ justifyContent: 'center', alignItems: 'center'}}>
                         </Col>
                         <Col xs lg="2"></Col>
                     </Row>
+                    <br/>
+                    <Row className="justify-content-between">
+                        <Col id="whiteRec"className="justify-content-md-center text-center"> 
+                        </Col>
+                        <Col  className="justify-content-md-center text-center" ></Col>
+                    <Col id="whiteRec2"></Col>
+                    </Row>
+                    
 
                 </div>
                 

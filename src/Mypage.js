@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Nav, Button, Container, Col, Row } from 'react-bootstrap';
-import './main.css';
+import './Mypage.css';
 
-class Main extends Component{
+class Mypage extends Component{
     render(){
         return(
             <div>
@@ -32,4 +32,4 @@ structure and count your movements. <br />
         );
     }
 }
-export default Main;
+export default Mypage;

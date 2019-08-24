@@ -33,7 +33,11 @@
 body, html {
     height: 100%;
     margin: 0;
-    background-image: linear-gradient(to bottom, #676767, #e5e5e5);
+    /* background-image: linear-gradient(to bottom, #676767, #e5e5e5); */
+}
+
+#health{
+    max-width: 100%;
 }
 
 #start{
@@ -92,4 +96,18 @@ body, html {
     line-height: normal;
     letter-spacing: 0.55px;
     color: #ffffff;
+}
+
+#whiteRec{
+    width: 15px;
+    height: 34px;
+    background-color: #ffffff;
+    max-width: fit-content;
+}
+
+#whiteRec2{
+  width: 97px;
+  height: 4px;
+  background-color: #ffffff;
+  max-width: fit-content;
 }
