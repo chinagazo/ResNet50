@@ -1,0 +1,95 @@
+#time{
+    width: 379px;
+  height: 266px;
+  font-family: mySecondFont;
+  font-size: 120px;
+  font-weight: 500;
+  font-style: italic;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 4.11px;
+  color: #ea0707;
+}
+
+@font-face {
+    font-family: mySecondFont;
+    src: url(Anteb-MediumItalic.otf);
+    font-weight: bold;
+  }
+
+  @font-face {
+    font-family: mySecondFont2;
+    src: url(Anteb-Light.otf);
+    font-weight: bold;
+  }
+
+#background{
+  background: no-repeat center center fixed;
+  background-size:cover;
+  bottom: 0;
+  background-image: linear-gradient(to bottom, #676767, #e5e5e5);
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    background-image: linear-gradient(to bottom, #676767, #e5e5e5);
+}
+
+#start{
+    margin-left:10px;
+}
+
+#Rectangle1{
+    padding: 3% 0%;
+    font-family: mySecondFont4;
+    top:0;
+  font-size: 72px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 10.05px;
+  color: #ffffff;
+    border: solid 1px #efefef;
+}
+
+#word{
+    width: 73.5px;
+    height: 30px;
+    transform: rotate(-90deg);
+    font-family: mySecondFont3;
+    font-size: 14px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 1.95px;
+    color: #ffffff;
+}
+
+@font-face {
+    font-family: mySecondFont3;
+    src: url(Anteb-SemiLight.otf);
+    font-weight: bold;
+  }
+
+  
+@font-face {
+    font-family: mySecondFont4;
+    src: url(OCRAStd.otf);
+    font-weight: bold;
+  }
+#end{
+    margin-right: 10px;
+    width: 27px;
+    height: 36px;
+    font-family: mySecondFont2;
+    font-size: 16px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.55px;
+    color: #ffffff;
+}

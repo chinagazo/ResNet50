@@ -3,7 +3,7 @@ import { Navbar, Nav, Button, Container, Col, Row } from 'react-bootstrap';
 import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Link, Switch  } from 'react-router-dom';
-import Main from './step1/main';
+import Main from './step2/main';
 import round from './round.png';
 import About from './About';
 // import { fire, getFireDB } from './Firebase';
@@ -48,7 +48,7 @@ function ContainerHeader() {
   <Row className="justify-content-md-center text-center">
       <div id="box" style={{display: 'flex', 
 justifyContent: 'center', alignItems: 'center'}}>
-          WHATTT
+          WHATTTTTTTTT
       </div>
       
   </Row>
@@ -157,8 +157,8 @@ export default class App extends Component{
             <Navbar.Brand href="/" className="FontExtra">PUMPETITION</Navbar.Brand>
             <Navbar.Collapse className="justify-content-end FontExtra">
               <Link to="/About" style={{color:'black'}}>ABOUT</Link>
-              <Link to="/step1/Main" id="Ready" style={{display: 'flex', 
-    justifyContent: 'center', alignItems: 'center'}}>Ready?</Link>
+              <Link to="/step2/Main" id="Ready" style={{display: 'flex', 
+    justifyContent: 'center', alignItems: 'center'}}>READY?</Link>
 
               {/* <Nav.Link href="#features">Features</Nav.Link>
               <Nav.Link href="#pricing">Pricing</Nav.Link> */}
@@ -172,7 +172,7 @@ export default class App extends Component{
               <Switch>
                 <Route exact path="/" component={ContainerHeader}/>
                 <Route path="/About" component={About}/>
-                <Route path="/step1/Main" component={Main} />
+                <Route path="/step2/Main" component={Main} />
               
               </Switch> 
            </Router>
