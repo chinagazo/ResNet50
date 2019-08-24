@@ -26,8 +26,8 @@ export default class App extends Component{
   // }
 
   static defaultProps = {
-    videoWidth: 900,
-    videoHeight: 700,
+    videoWidth: 1600,
+    videoHeight: 1000,
     flipHorizontal: true,
     algorithm: 'multi-pose',
     showVideo: true,
@@ -114,12 +114,12 @@ export default class App extends Component{
   }
 
   detectPose() {
-    const {videoWidth, videoHeight} = this.props
-    const canvas = this.canvas
-    const canvasContext = canvas.getContext('2d')
+    const {videoWidth, videoHeight} = this.props;
+    const canvas = this.canvas;
+    const canvasContext = canvas.getContext('2d');
 
-    canvas.width = videoWidth
-    canvas.height = videoHeight
+    canvas.width = videoWidth;
+    canvas.height = videoHeight;
 
     this.poseDetectionFrame(canvasContext)
   }
@@ -178,12 +178,8 @@ export default class App extends Component{
 
       canvasContext.clearRect(0, 0, videoWidth, videoHeight)
 
-      if (showVideo) {
-        canvasContext.save()
-        canvasContext.scale(1, 1)
-        canvasContext.translate(-videoWidth, 0)
+      if (showVideo) {        
         canvasContext.drawImage(video, 0, 0, videoWidth, videoHeight)
-        canvasContext.restore()
       }
 
       poses.forEach(({score, keypoints}) => {

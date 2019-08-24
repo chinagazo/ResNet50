@@ -23,8 +23,18 @@
   color: #61dafb;
 }
 
-.videoNoShow {
-  display:none;
+#videoNoShow {
+  transform: scaleX(-1);
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  display:none !important;
+}
+
+.webcam{
+    transform: rotateY(180deg);
+    -webkit-transform:rotateY(180deg); /* Safari and Chrome */
+    -moz-transform:rotateY(180deg); /* Firefox */
 }
 
 @keyframes App-logo-spin {
