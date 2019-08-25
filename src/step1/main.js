@@ -95,17 +95,20 @@ export default class main extends React.Component {
     this.detectPose()
 
     this.detectPose()
-    if(model.userPP === "p1"){
+    if(model.userPP == "p1"){
       this.drawPose("p2", "canvas1"); //플레이어 아이디, 캔버스 el id
       this.drawPose("p3", "canvas2"); //플레이어 아이디, 캔버스 el id
+      console.log("p1");
     }
-    else if (model.userPP === "p2") {
+    else if (model.userPP == "p2") {
       this.drawPose("p1", "canvas1"); //플레이어 아이디, 캔버스 el id
       this.drawPose("p3", "canvas2"); //플레이어 아이디, 캔버스 el id
+      console.log("p2");
     }
     else {
       this.drawPose("p1", "canvas1"); //플레이어 아이디, 캔버스 el id
       this.drawPose("p2", "canvas2"); //플레이어 아이디, 캔버스 el id
+      console.log("p3");
     }
   }
 
