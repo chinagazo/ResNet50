@@ -208,6 +208,7 @@ export default class main extends React.Component {
 
       model.ready.check(poses, "p1");
       model.sensor.isSit(model.ready.avg_distance, poses, "p1");
+      model.ready.load();
       // <------------------------------>
 
       poses.forEach(({ score, keypoints }) => {
@@ -319,7 +320,7 @@ export default class main extends React.Component {
               <Col span={8} style={{ textAlign: "center", paddingBottom: "99.2%", backgroundColor: "#ffffff", overflow: "hidden" }} >
                 <div>
                   <canvas id="canvas1" width="500" height="300" style={{ border: "5px solid" }} />
-                  <p className='s' style={{ left: 300, top: 1 }}><Timer /></p>
+                  {/* <p className='s' style={{ left: 300, top: 1 }}><Timer /></p> */}
                   <p className='sss' style={{ paddingLeft: 90, paddingRight: 90, position: 'absolute', right: '250px', top: '8%' }}>'  SQUAT  SQUAT  SQUAT  '</p>
                   <p className='bottomN' style={{}}>22</p>
                   <div style={{ position: 'absolute', paddingRight: '170px', bottom: '60.5%', left: 70, border: '2px solid' }}></div>
