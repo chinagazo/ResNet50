@@ -3,8 +3,8 @@ import * as posenet from '@tensorflow-models/posenet'
 const pointRadius = 3
 
 export const config = {
-    videoWidth: 1600,
-    videoHeight: 1000,
+    videoWidth: 600,
+    videoHeight: 700,
     flipHorizontal: true,
     algorithm: 'multi-pose',
     showVideo: true,
@@ -30,7 +30,7 @@ export function drawKeyPoints(
   minConfidence,
   skeletonColor,
   canvasContext,
-  scale = 1
+  scale = 0.5
 ) {
   keypoints.forEach(keypoint => {
     if (keypoint.score >= minConfidence) {
@@ -65,7 +65,7 @@ export function drawSkeleton(
   color,
   lineWidth,
   canvasContext,
-  scale = 1
+  scale = 0.5
 ) {
   const adjacentKeyPoints = posenet.getAdjacentKeyPoints(
     keypoints,

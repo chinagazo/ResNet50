@@ -52,7 +52,6 @@ export let ready = {
             }
             else {
                 status = true;
-                console.log(this.avg_distance);
             }
             this.readyCount += 1;
         }
@@ -61,7 +60,7 @@ export let ready = {
             this.avg_distance = 0;
             status = false;
             // 카운트 초기화
-            score.reset("p1");
+            score.reset("p2");
         }
         await database.ref('ready/' + player).set(status);
     },
@@ -73,7 +72,6 @@ export let ready = {
     load: function () {
         database.ref("ready").on("value", snap => {
             this.status = snap.val();
-            console.log(this.status);
         });
     }
     
@@ -190,7 +188,6 @@ export let sensor = {
             curStatus = false;
             if(this.lastStatus) { // 전에 앉아있었다면
                 score.upCount(player);
-                console.log("success");
             }
             else { // 서있었다면
                 // do nothing
