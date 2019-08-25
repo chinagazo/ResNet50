@@ -11,6 +11,8 @@ setTimeout(() => {
 // 현재 나의 포즈 저장
 export let curPoses = [];
 
+  //*******이것이 유저 선택 코드 ***********/
+ export const userPP = "p1"
 
 
 export let ready = {
@@ -60,7 +62,8 @@ export let ready = {
             this.avg_distance = 0;
             status = false;
             // 카운트 초기화
-            score.reset("p2");
+            score.reset(userPP);
+
         }
         await database.ref('ready/' + player).set(status);
     },
@@ -74,7 +77,6 @@ export let ready = {
             this.status = snap.val();
         });
     }
-    
 }
 
 
