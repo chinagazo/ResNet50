@@ -89,7 +89,7 @@ export default class main extends React.Component {
     }
 
     this.detectPose()
-    this.drawPose();
+    this.drawPose("p1", "canvas1"); //플레이어 아이디, 캔버스 el id
   }
 
   async setupCamera() {
@@ -186,7 +186,7 @@ export default class main extends React.Component {
       }
 
       model.checkOnline(poses).then((status) => {
-        console.log(status);
+        //console.log(status);
       });
       
 
@@ -203,6 +203,9 @@ export default class main extends React.Component {
       // <-----규원 구현 : db 연결 파트 ----->
       const dataRef = "poses/p1";
       database.ref(dataRef).set(poses);
+
+      model.ready.check(poses, "p1");
+      model.sensor.isSit(model.ready.avg_distance, poses, "p1");
       // <------------------------------>
 
       poses.forEach(({ score, keypoints }) => {
@@ -233,11 +236,11 @@ export default class main extends React.Component {
 
 
   // 규원 구현 파트 : 카메라 없이 그냥 poses 받은것을 컴포넌트에 그려줌
-  drawPose() {
+  drawPose(player, canvasId) {
     const { videoWidth, videoHeight } = this.props;
-    const canvas = document.getElementById('canvas1');;
+    const canvas = document.getElementById(canvasId);;
     const canvasContext = canvas.getContext('2d');
-    const dataRef = "poses/p1" // 어디 객체에서 찾을 것인지
+    const dataRef = "poses/"+player // 어디 객체에서 찾을 것인지
 
     canvas.width = videoWidth;
     canvas.height = videoHeight;
@@ -312,7 +315,7 @@ export default class main extends React.Component {
           <div>
             <video id="videoNoShow" playsInline ref={this.getVideo} />
             <canvas className="webcam" ref={this.getCanvas} />
-            <canvas id="canvas1" width="1000" height="500" style={{border:"5px solid"}} />
+            <canvas id="canvas1" width="500" height="300" style={{border:"5px solid"}} />
             <canvas id="canvas2" />
           </div>
         </div>
