@@ -36,8 +36,8 @@ let database = firebase.database();
 export default class main extends React.Component {
 
   static defaultProps = {
-    videoWidth: 1600,
-    videoHeight: 1000,
+    videoWidth: 600,
+    videoHeight: 700,
     flipHorizontal: false,
     algorithm: 'multi-pose',
     showVideo: true,
@@ -210,11 +210,12 @@ export default class main extends React.Component {
       canvasContext.clearRect(0, 0, videoWidth, videoHeight)
 
       if (showVideo) {
-        canvasContext.save();
-        //canvasContext.scale(-1, 1);
-        //canvasContext.translate(-videoWidth, 0);
+        var scale = 0.5;
+        // canvasContext.save();
+        // canvasContext.scale(-scale, scale);
+        // canvasContext.translate(-videoWidth, 0);
         canvasContext.drawImage(video, 0, 0, videoWidth, videoHeight);
-        canvasContext.restore();
+        // canvasContext.restore();
       }
 
       // <-----규원 구현 : db 연결 파트 ----->
@@ -223,6 +224,7 @@ export default class main extends React.Component {
 
       model.ready.check(poses, model.userPP);
       model.sensor.isSit(model.ready.avg_distance, poses, "model.userPP");
+
       model.ready.load();
       // <------------------------------>
 

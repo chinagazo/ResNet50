@@ -63,6 +63,7 @@ export let ready = {
             status = false;
             // 카운트 초기화
             score.reset(userPP);
+
         }
         await database.ref('ready/' + player).set(status);
     },
