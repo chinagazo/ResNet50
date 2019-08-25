@@ -11,8 +11,9 @@ setTimeout(() => {
 // 현재 나의 포즈 저장
 export let curPoses = [];
 
-  //*******이것이 유저 선택 코드 ***********/
- export const userPP = "p3"
+  //*******이것이 유저 선택 코드 ***********/x
+ export const userPP = "p2"
+
 
 
 export let ready = {
