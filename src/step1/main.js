@@ -5,7 +5,7 @@ import Timer from '../step3/time/timer'
 import firebase from 'firebase/app';
 import "firebase/database";
 
-import * as model from "./model";
+import MainModel, * as model from "./model";
 // <--------------------->
 
 import './main.css';
@@ -346,7 +346,7 @@ export default class main extends React.Component {
                   <canvas id="canvas1" width="500" height="300" style={{ border: "5px solid" }} />
                   {/* <p className='s' style={{ left: 300, top: 1 }}><Timer /></p> */}
                   <p className='sss' style={{ paddingLeft: 90, paddingRight: 90, position: 'absolute', right: '250px', top: '8%' }}>'  SQUAT  SQUAT  SQUAT  '</p>
-                  <p className='bottomN' style={{}}>22</p>
+                  <p className='bottomN' style={{}}>{(<MainModel/>).canvas1}</p>
                   <div style={{ position: 'absolute', paddingRight: '170px', bottom: '60.5%', left: 70, border: '2px solid' }}></div>
                   <p className='kcal' style={{ position: 'absolute', top: '36%', right: 70 }}>0.234kcal</p>
                   <div style={{ position: 'absolute', paddingLeft: '380px', bottom: '60.5%', right: 70, border: '2px solid' }}></div>
@@ -360,7 +360,7 @@ export default class main extends React.Component {
               <Col className='backgra' span={8} style={{ paddingBottom: "99.2%", overflow: "hidden", fontWeight: 500 }} >
                 <video id="videoNoShow" playsInline ref={this.getVideo} />
                 <canvas className="webcam" ref={this.getCanvas} />
-                <p className='bottomN' style={{}}>22</p>
+                <p className='bottomN' style={{}}>{<MainModel/>}.p1</p>
                 <div style={{ position: 'absolute', paddingRight: '170px', bottom: '60.5%', left: 70, border: '2px solid' }}></div>
                 <p className='counts'>COUNTS</p>
                 <p className='bottomid' style={{}}>USER 12345</p>
@@ -369,7 +369,7 @@ export default class main extends React.Component {
             <div>
               <Col className='backgrb' span={8} style={{ paddingBottom: "99.2%", overflow: "hidden", fontWeight: 500 }} >
                 <canvas id="canvas2" />
-                <p className='bottomN' style={{}}>22</p>
+                <p className='bottomN' style={{}}>{(<MainModel/>).canvas2}</p>
                 <div style={{ position: 'absolute', paddingRight: '170px', bottom: '60.5%', left: 70, border: '2px solid' }}></div>
                 <p className='counts'>COUNTS</p>
                 <p className='bottomid' style={{}}>USER 12345</p>

@@ -1,6 +1,8 @@
 
 import firebase from 'firebase/app';
 import "firebase/database";
+import React, { Component } from 'react';
+import Main from './main';
 
 let database
 setTimeout(() => {
@@ -12,8 +14,37 @@ setTimeout(() => {
 export let curPoses = [];
 
   //*******이것이 유저 선택 코드 ***********/x
- export const userPP = "p2"
+export const userPP = "p1";
 
+export default class MainModel extends Component{
+
+    render(){
+        // 
+        const userPP_ = "p1";
+        let userCanvas = {};
+        if(userPP_ == "p1") {
+            userCanvas.userPP = userPP_;
+            userCanvas.canvas1 = "p2";
+            userCanvas.canvas2 = "p3";
+        }
+        else if(userPP_ == "p2") {
+            userCanvas.userPP = userPP_;
+            userCanvas.canvas1 = "p1";
+            userCanvas.canvas2 = "p3";
+        }
+        else {
+            userCanvas.userPP = userPP_;
+            userCanvas.canvas1 = "p1";
+            userCanvas.canvas2 = "p2";
+        }
+        console.log(userCanvas);
+        return(
+            <>
+            {score.amount}
+            </>
+        );
+    }
+}
 
 
 export let ready = {
