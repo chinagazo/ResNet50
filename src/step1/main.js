@@ -66,6 +66,8 @@ export default class main extends React.Component {
     this.video = elem
   }
 
+
+
   async componentDidMount() {
     try {
       await this.setupCamera()
@@ -91,7 +93,20 @@ export default class main extends React.Component {
     }
 
     this.detectPose()
-    this.drawPose("p1", "canvas1"); //플레이어 아이디, 캔버스 el id
+
+    this.detectPose()
+    if(model.userPP === "p1"){
+      this.drawPose("p2", "canvas1"); //플레이어 아이디, 캔버스 el id
+      this.drawPose("p3", "canvas2"); //플레이어 아이디, 캔버스 el id
+    }
+    else if (model.userPP === "p2") {
+      this.drawPose("p1", "canvas1"); //플레이어 아이디, 캔버스 el id
+      this.drawPose("p3", "canvas2"); //플레이어 아이디, 캔버스 el id
+    }
+    else {
+      this.drawPose("p1", "canvas1"); //플레이어 아이디, 캔버스 el id
+      this.drawPose("p2", "canvas2"); //플레이어 아이디, 캔버스 el id
+    }
   }
 
   async setupCamera() {
@@ -203,11 +218,11 @@ export default class main extends React.Component {
       }
 
       // <-----규원 구현 : db 연결 파트 ----->
-      const dataRef = "poses/p1";
+      const dataRef = "poses/"+model.userPP;
       database.ref(dataRef).set(poses);
 
-      model.ready.check(poses, "p1");
-      model.sensor.isSit(model.ready.avg_distance, poses, "p1");
+      model.ready.check(poses, model.userPP);
+      model.sensor.isSit(model.ready.avg_distance, poses, "model.userPP");
       model.ready.load();
       // <------------------------------>
 
@@ -282,6 +297,10 @@ export default class main extends React.Component {
 
       canvasContext.clearRect(0, 0, videoWidth, videoHeight)
 
+      if(!poses || !poses[0]) {
+        return;
+      }
+      
       poses.forEach(({ score, keypoints }) => {
         if (score >= minPoseConfidence) {
           if (showPoints) {
