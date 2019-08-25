@@ -17,47 +17,125 @@ import check from './check.png';
 // }
 
 
-function ContainerHeader() {
-  return <div>
-  <canvas id="balls"></canvas>
-  <Row className="justify-content-between">
-    
-    <Col xs lg="1"></Col>
-    <Col id="RectangleOut" className="justify-content-md-center text-center">
-      <div id="Rectangle">
-      PUMP OR DEATH - THE DEATH OF COMPETITION
-      </div>  
-    </Col>
-    <Col xs lg="1" className="justify-content-md-end"></Col>
-  </Row>
-  <Container className="justify-content-between">
-  <Row xs lg="2"></Row>
-  <Row className="justify-content-md-center text-center">
-      <div id="track">
-      Getting Connected with people.<br />
-      Stay Inspired for your workout.
-      </div>
-      
-  </Row>
-  <Row className="justify-content-md-end"><img src={round}
-      srcset="round@2x.png 2x,round@3x.png 3x"
-      class="round"></img></Row>
-</Container>
+export class ContainerHeader extends Component {
 
-<Container className="justify-content-between">
-  <Row xs lg="2"></Row>
-  <Row className="justify-content-md-center text-center">
-      <Link to="/step3/Main" id="Ready" style={{display: 'flex', 
-justifyContent: 'center', alignItems: 'center', marginTop:'5%'}}>
-          <img src={group2}
-          srcset="./group-2@2x.png 2x,
-                  ./group-2@3x.png 3x"
-          class="Group-2" />
-      </Link>
-  </Row>
-  <Row className="justify-content-md-end"></Row>
-</Container>
-</div> ;
+  componentDidMount(){
+    var canvas = document.getElementById('balls');
+    var bodyCheck = document.getElementById("sizer");
+    // console.log(canvas);
+    var width = canvas.width = bodyCheck.clientWidth;
+    var height = canvas.height = 1000;
+    
+    function random(min,max){
+      return Math.floor(Math.random() * (max - min + 1))+min;
+    }
+    
+    if(canvas.getContext){
+      var theSurface = canvas.getContext('2d');
+      
+      function Ball(x,y,color,velX,velY,size){
+        this.x = x;
+        this.y = y;
+        this.velX = velX;
+        this.velY = velY;
+       this.color = color;
+        this.size = size;
+        this.draw = function(){
+          theSurface.beginPath();
+          theSurface.arc(this.x,this.y,50,12,Math.PI*2,true);
+          theSurface.fillStyle = this.color;
+          theSurface.fill();
+        }
+        this.update = function(){
+          if((this.x + this.size) >= width ){
+             this.velX = -(this.velX);
+             }
+          
+          if((this.x - this.size) <= 0 ){
+             this.velX = -(this.velX);
+             }
+          
+          if((this.y + this.size) >= height ){
+             this.velY = -(this.velY);
+             }
+          if((this.y - this.size) <= 0 ){
+             this.velY = -(this.velY);
+             }
+          
+          this.x += this.velX;
+          this.y += this.velY;
+          // theSurface.bezierCurveTo();
+        }
+        
+        
+      }
+      var balls = [];
+      
+      function loop(){
+        theSurface.fillStyle = 'rgba(255, 255, 255, 0.02)';
+        theSurface.fillRect(0,0,width,height);
+        
+        while(balls.length < 20){
+        var myBall = new Ball(random(0,width),random(0,height),'rgb('+/*random(0,255)*/0+','+/*random(0,255)*/0+','+/*random(0,255)*/0+')',random(-7,7),random(-7,7),random(10,20));
+        balls.push(myBall);
+      }
+        
+        for(var j = 0; j < balls.length;j++){
+          balls[j].draw();
+          balls[j].update();
+        }
+        
+        requestAnimationFrame(loop); 
+        
+      }
+      loop();
+      
+    }
+  }
+  render(){
+    return (<div id="sizer">
+      <canvas id="balls"></canvas>
+      <Row className="justify-content-between">
+        
+        <Col xs lg="1"></Col>
+        <Col id="RectangleOut" className="justify-content-md-center text-center">
+          <div id="Rectangle" style={{display: 'flex', 
+    justifyContent: 'center', alignItems: 'center'}}>
+          PUMP OR DEATH - THE DEATH OF COMPETITION
+          </div>  
+        </Col>
+        <Col xs lg="1" className="justify-content-md-end"></Col>
+      </Row>
+      <Container className="justify-content-between">
+      <Row xs lg="2"></Row>
+      <Row className="justify-content-md-center text-center">
+          <div id="track">
+          Getting Connected with people.<br />
+          Stay Inspired for your workout.
+          </div>
+          
+      </Row>
+      <Row className="justify-content-md-end"><img src={round}
+          srcset="round@2x.png 2x,round@3x.png 3x"
+          class="round"></img></Row>
+    </Container>
+    
+    <Container className="justify-content-between">
+      <Row xs lg="2"></Row>
+      <Row className="justify-content-md-center text-center">
+          <Link to="/step3/Main" id="Ready" style={{display: 'flex', 
+    justifyContent: 'center', alignItems: 'center', marginTop:'5%'}}>
+              <img src={group2}
+              srcset="./group-2@2x.png 2x,
+                      ./group-2@3x.png 3x"
+              class="Group-2" />
+          </Link>
+      </Row>
+      <Row className="justify-content-md-end"></Row>
+    </Container>
+    </div> );
+  }
+  
 }
 
 export default class App extends Component{

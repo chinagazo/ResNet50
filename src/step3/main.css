@@ -1,0 +1,61 @@
+#bodyPalette{
+  background-image: linear-gradient(97deg, #35ffe7, #1effc6, #18ffca);
+  height: 100%;
+  margin:0;
+}
+
+#Rectangle {
+  width: 1352px;
+  height: 88px;
+  object-fit: contain;
+  background-color: #343434;
+  color:#ffffff;
+}
+
+#Rectangle2 {
+  width: 1352px;
+  height: 140px;
+  object-fit: contain;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  background-color: #ffffff;
+  font-family: AntebAlt;
+  font-size: 40px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 5.58px;
+  color: #000000;
+}
+
+#Rectangle3 {
+  width: 1352px;
+  height: 139px;
+  object-fit: contain;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  background-color: #efefef;
+      font-family: AntebAlt;
+      font-size: 40px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 5.58px;
+      color: #000000;
+}
+
+#Rectangle4 {
+  width: 1352px;
+  height: 140px;
+  object-fit: contain;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.5);
+  background-color: #cdcdcd;
+      font-family: AntebAlt;
+      font-size: 40px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 5.58px;
+      color: #000000;
+}
