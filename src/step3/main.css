@@ -1,21 +1,45 @@
-#bodyPalette{
+/* #bodyPalette{
   background-image: linear-gradient(97deg, #35ffe7, #1effc6, #18ffca);
   height: 100%;
   margin:0;
+  
+} */
+
+html, body{
+  /* height: 100%;
+  margin:0;
+  background-image: linear-gradient(97deg, #35ffe7, #1effc6, #18ffca); */
+
+}
+
+#backgroundDiv{
+  height:100%;
+  margin:0;
+  background-image: linear-gradient(97deg, #35ffe7, #1effc6, #18ffca); 
+
+}
+
+#button1{
+  height:100%;
+  margin-bottom: 10%;
 }
 
 #Rectangle {
-  width: 1352px;
-  height: 88px;
+  /* width: 1352px;
+  height: 88px; */
+  padding: 2% 5%;
+  font-size:35px;
   object-fit: contain;
   background-color: #343434;
   color:#ffffff;
+  object-fit: contain;
 }
 
 #Rectangle2 {
-  width: 1352px;
-  height: 140px;
+  /* width: 1352px;
+  height: 140px; */
   object-fit: contain;
+  padding: 3% 5%;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
   background-color: #ffffff;
   font-family: AntebAlt;
@@ -29,9 +53,10 @@
 }
 
 #Rectangle3 {
-  width: 1352px;
-  height: 139px;
+  /* width: 1352px;
+  height: 139px; */
   object-fit: contain;
+  padding: 3% 5%;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
   background-color: #efefef;
       font-family: AntebAlt;
@@ -45,9 +70,10 @@
 }
 
 #Rectangle4 {
-  width: 1352px;
-  height: 140px;
+  /* width: 1352px;
+  height: 140px; */
   object-fit: contain;
+  padding: 3% 5%;
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.5);
   background-color: #cdcdcd;
       font-family: AntebAlt;

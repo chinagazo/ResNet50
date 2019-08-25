@@ -1,0 +1,102 @@
+.s {
+    position:absolute;
+    font-family: Anteb;
+    font-size: 100px;
+    font-weight: 500;
+
+    font-stretch: normal;
+ 
+    letter-spacing: 4.11px;
+    color: #ea0707;
+}
+
+.backgra{
+    box-shadow: 0 15px 19px 0 rgba(184, 184, 184, 0.5);
+    background-image: linear-gradient(to bottom, #00ffcd, #ffffff);
+}
+
+.backgrb{
+    box-shadow: 0 15px 19px 0 rgba(184, 184, 184, 0.5);
+  background-image: linear-gradient(184deg, #626262, #d8d8d8 73%, #ffffff);
+}
+
+.sss{
+    color : #000000;
+    font-family: OCRAStd;
+    font-size: 22px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #00ffc4;
+    background-color: #3f3f3f;
+    padding : 30px;
+}
+
+.bottomN{
+    color : #000000;
+     position:absolute;
+    font-family: Anteb;
+    font-size: 160px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    top : 29%;
+    left : 70px;
+}
+
+.kcal {
+    color : #000000;
+    font-family: Anteb;
+    font-size: 45px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 6.28px;
+  }
+
+  .bottomid{
+    position:absolute;
+    color : #000000;
+    font-family: Anteb;
+    font-size: 30px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 4.88px;
+    top : 42%;
+   left : 70px;
+}
+
+.counts{
+    color : #000000;
+position:absolute;
+top : 40%;
+ left : 70px;
+font-family: Anteb;
+font-size: 14px;
+font-weight: 300;
+font-style: normal;
+font-stretch: normal;
+line-height: normal;
+letter-spacing: 1.95px;
+}
+
+.burned{
+    color : #000000;
+    position:absolute;
+    top : 40%;
+     right : 70px;
+    font-family: Anteb;
+    font-size: 14px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 1.95px;
+
+    }
