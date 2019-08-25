@@ -1,5 +1,6 @@
 import React from 'react';
-
+import { Row, Col } from 'antd';
+import Timer from '../step3/time/timer'
 // <–––––––규원----------->
 import firebase from 'firebase/app';
 import "firebase/database";
@@ -11,7 +12,8 @@ import './main.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Nav } from 'react-bootstrap';
 import { drawKeyPoints, drawSkeleton } from './utils';
-import * as posenet from '@tensorflow-models/posenet'
+import * as posenet from '@tensorflow-models/posenet';
+import '../step3/threebattle/threebattle.css';
 
 // <–––––––규원----------->
 // TODO: Replace the following with your app's Firebase project configuration
@@ -188,7 +190,7 @@ export default class main extends React.Component {
       model.checkOnline(poses).then((status) => {
         //console.log(status);
       });
-      
+
 
       canvasContext.clearRect(0, 0, videoWidth, videoHeight)
 
@@ -240,22 +242,22 @@ export default class main extends React.Component {
     const { videoWidth, videoHeight } = this.props;
     const canvas = document.getElementById(canvasId);;
     const canvasContext = canvas.getContext('2d');
-    const dataRef = "poses/"+player // 어디 객체에서 찾을 것인지
+    const dataRef = "poses/" + player // 어디 객체에서 찾을 것인지
 
     canvas.width = videoWidth;
     canvas.height = videoHeight;
 
     database.ref(dataRef).on("value", snap => {
       let poses = snap.val();
-      if(!poses) {
+      if (!poses) {
         return;
       }
-      if(!poses[0]) {
+      if (!poses[0]) {
         return;
       }
       this.poseDrawFrame(canvasContext, poses) // 여기서 받는 콘텍스트에 poses 받은걸 그립니다.
     });
-    
+
   }
 
   poseDrawFrame(canvasContext, poses) {
@@ -313,10 +315,41 @@ export default class main extends React.Component {
       <>
         <div>
           <div>
-            <video id="videoNoShow" playsInline ref={this.getVideo} />
-            <canvas className="webcam" ref={this.getCanvas} />
-            <canvas id="canvas1" width="500" height="300" style={{border:"5px solid"}} />
-            <canvas id="canvas2" />
+            <div>
+              <Col span={8} style={{ textAlign: "center", paddingBottom: "99.2%", backgroundColor: "#ffffff", overflow: "hidden" }} >
+                <div>
+                  <canvas id="canvas1" width="500" height="300" style={{ border: "5px solid" }} />
+                  <p className='s' style={{ left: 300, top: 1 }}><Timer /></p>
+                  <p className='sss' style={{ paddingLeft: 90, paddingRight: 90, position: 'absolute', right: '250px', top: '8%' }}>'  SQUAT  SQUAT  SQUAT  '</p>
+                  <p className='bottomN' style={{}}>22</p>
+                  <div style={{ position: 'absolute', paddingRight: '170px', bottom: '60.5%', left: 70, border: '2px solid' }}></div>
+                  <p className='kcal' style={{ position: 'absolute', top: '36%', right: 70 }}>0.234kcal</p>
+                  <div style={{ position: 'absolute', paddingLeft: '380px', bottom: '60.5%', right: 70, border: '2px solid' }}></div>
+                  <p className='counts'>COUNTS</p>
+                  <p className='burned'>Burned</p>
+                  <p className='bottomid' style={{}}>USER 12345</p>
+                </div>
+              </Col>
+            </div>
+            <div>
+              <Col className='backgra' span={8} style={{ paddingBottom: "99.2%", overflow: "hidden", fontWeight: 500 }} >
+                <video id="videoNoShow" playsInline ref={this.getVideo} />
+                <canvas className="webcam" ref={this.getCanvas} />
+                <p className='bottomN' style={{}}>22</p>
+                <div style={{ position: 'absolute', paddingRight: '170px', bottom: '60.5%', left: 70, border: '2px solid' }}></div>
+                <p className='counts'>COUNTS</p>
+                <p className='bottomid' style={{}}>USER 12345</p>
+              </Col>
+            </div>
+            <div>
+              <Col className='backgrb' span={8} style={{ paddingBottom: "99.2%", overflow: "hidden", fontWeight: 500 }} >
+                <canvas id="canvas2" />
+                <p className='bottomN' style={{}}>22</p>
+                <div style={{ position: 'absolute', paddingRight: '170px', bottom: '60.5%', left: 70, border: '2px solid' }}></div>
+                <p className='counts'>COUNTS</p>
+                <p className='bottomid' style={{}}>USER 12345</p>
+              </Col>
+            </div>
           </div>
         </div>
       </>
