@@ -30,7 +30,7 @@ export function drawKeyPoints(
   minConfidence,
   skeletonColor,
   canvasContext,
-  scale = 0.5
+  scale = 1
 ) {
   keypoints.forEach(keypoint => {
     if (keypoint.score >= minConfidence) {
@@ -65,7 +65,7 @@ export function drawSkeleton(
   color,
   lineWidth,
   canvasContext,
-  scale = 0.5
+  scale = 1
 ) {
   const adjacentKeyPoints = posenet.getAdjacentKeyPoints(
     keypoints,
