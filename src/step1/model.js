@@ -12,7 +12,7 @@ setTimeout(() => {
 export let curPoses = [];
 
   //*******이것이 유저 선택 코드 ***********/
- export const userPP = "p1"
+ export const userPP = "p3"
 
 
 export let ready = {
