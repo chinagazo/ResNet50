@@ -2,6 +2,7 @@ import { Row, Col } from 'antd';
 import React from 'react';
 import './threebattle.css';
 import Timer from '../time/timer';
+import MainJs from '../../step1/main';
 
 const threebattle = () => {
     return (
@@ -12,7 +13,8 @@ const threebattle = () => {
 
             <Row style={{ overflow: 'hidden' }}>
                 <div>
-                    <div>
+                    <MainJs/>
+                    {/* <div>
                         <Col span={8} style={{ textAlign: "center", paddingBottom: "99.2%", backgroundColor: "#ffffff", overflow: "hidden" }} >
                             <div>
                                 <p className='s' style={{ left: 300, top: 1 }}><Timer /></p>
@@ -42,7 +44,7 @@ const threebattle = () => {
                             <p className='counts'>COUNTS</p>
                             <p className='bottomid' style={{}}>USER 12345</p>
                         </Col>
-                    </div>
+                    </div> */}
                 </div>
 
 

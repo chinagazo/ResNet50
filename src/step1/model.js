@@ -22,7 +22,7 @@ export let ready = {
     // * 준비완료시 그 자세를 기록해 (어깨부터 발까지 거리) 나중에 스쿼트 판정 잣대로 만듬.
     // * 단 앞에 예외처리를 해서 게임이 시작되면 이 함수가 더이상 실행되지 않도록 해야 함.
     // * 안 그러면 판정 잣대가 계속 바뀜.
-    check: function (poses, player) {
+    check: async function (poses, player) {
         if (!poses || !player) {
             this.readyCount = 0;
             this.avg_distance = 0;
@@ -63,11 +63,20 @@ export let ready = {
             // 카운트 초기화
             score.reset("p1");
         }
-
-        database.ref('ready/' + player).set(status);
-
-        return status;
+        await database.ref('ready/' + player).set(status);
+    },
+    status: {
+        p1: false,
+        p2: false,
+        p3: false,
+    },
+    load: function () {
+        database.ref("ready").on("value", snap => {
+            this.status = snap.val();
+            console.log(this.status);
+        });
     }
+    
 }
 
 
