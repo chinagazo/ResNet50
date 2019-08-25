@@ -223,7 +223,7 @@ export default class main extends React.Component {
       database.ref(dataRef).set(poses);
 
       model.ready.check(poses, model.userPP);
-      model.sensor.isSit(model.ready.avg_distance, poses, "model.userPP");
+      model.sensor.isSit(model.ready.avg_distance, poses, model.userPP);
 
       model.ready.load();
       // <------------------------------>
